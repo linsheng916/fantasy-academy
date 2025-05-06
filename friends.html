@@ -3,7 +3,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>首页</title>
+<title>机友管理</title>
 <style>
 body {
     margin: 0; padding: 0;
@@ -35,20 +35,20 @@ button { padding: 0.5em 1em; margin-top: 10px; }
     <a href="timetable.html">课程表</a>
 </nav>
 <section>
-    <h2 contenteditable="true">首页</h2>
-    <div id="content" contenteditable="true">欢迎来到男娘大学！点击左边进入各个系统。</div>
+    <h2 contenteditable="true">机友管理</h2>
+    <div id="content" contenteditable="true">机友：小红、小绿</div>
     <br/>
     <input type="file" accept="image/*" onchange="changeBackground(event)" />
     <button onclick="saveContent()">保存内容</button>
 </section>
 <script>
 function saveContent() {
-    localStorage.setItem("index_content", document.getElementById("content").innerHTML);
+    localStorage.setItem("friends_content", document.getElementById("content").innerHTML);
 }
 function loadContent() {
-    const saved = localStorage.getItem("index_content");
+    const saved = localStorage.getItem("friends_content");
     if (saved) document.getElementById("content").innerHTML = saved;
-    const bg = localStorage.getItem("index_bg");
+    const bg = localStorage.getItem("friends_bg");
     if (bg) document.body.style.backgroundImage = 'url(' + bg + ')';
 }
 function changeBackground(event) {
@@ -56,7 +56,7 @@ function changeBackground(event) {
     reader.onload = function(e) {
         const dataURL = e.target.result;
         document.body.style.backgroundImage = 'url(' + dataURL + ')';
-        localStorage.setItem("index_bg", dataURL);
+        localStorage.setItem("friends_bg", dataURL);
     };
     reader.readAsDataURL(event.target.files[0]);
 }

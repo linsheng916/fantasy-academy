@@ -3,14 +3,14 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>首页</title>
+<title>学分系统</title>
 <style>
 body {
     margin: 0; padding: 0;
     font-family: "微软雅黑";
     background-size: cover;
     background-position: center;
-    background-image: url('https://dummyimage.com/800x600/ccccff/333333&text=男娘');
+    background-image: url('https://dummyimage.com/800x600/ccccff/333333&text=辅导员');
 }
 header { background: rgba(0,0,0,0.6); color: white; padding: 1em; text-align: center; }
 nav { background: #eee; padding: 1em; }
@@ -35,20 +35,20 @@ button { padding: 0.5em 1em; margin-top: 10px; }
     <a href="timetable.html">课程表</a>
 </nav>
 <section>
-    <h2 contenteditable="true">首页</h2>
-    <div id="content" contenteditable="true">欢迎来到男娘大学！点击左边进入各个系统。</div>
+    <h2 contenteditable="true">学分系统</h2>
+    <div id="content" contenteditable="true">当前学分：24</div>
     <br/>
     <input type="file" accept="image/*" onchange="changeBackground(event)" />
     <button onclick="saveContent()">保存内容</button>
 </section>
 <script>
 function saveContent() {
-    localStorage.setItem("index_content", document.getElementById("content").innerHTML);
+    localStorage.setItem("credits_content", document.getElementById("content").innerHTML);
 }
 function loadContent() {
-    const saved = localStorage.getItem("index_content");
+    const saved = localStorage.getItem("credits_content");
     if (saved) document.getElementById("content").innerHTML = saved;
-    const bg = localStorage.getItem("index_bg");
+    const bg = localStorage.getItem("credits_bg");
     if (bg) document.body.style.backgroundImage = 'url(' + bg + ')';
 }
 function changeBackground(event) {
@@ -56,7 +56,7 @@ function changeBackground(event) {
     reader.onload = function(e) {
         const dataURL = e.target.result;
         document.body.style.backgroundImage = 'url(' + dataURL + ')';
-        localStorage.setItem("index_bg", dataURL);
+        localStorage.setItem("credits_bg", dataURL);
     };
     reader.readAsDataURL(event.target.files[0]);
 }
