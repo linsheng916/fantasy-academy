@@ -1,0 +1,22 @@
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+h1 {
+  color: #5a2a83;
+}
+#course-container {
+  margin-top: 20px;
+}
+.course-item {
+  margin-bottom: 10px;
+}
+button {
+  margin-left: 10px;
+}
+#log {
+  margin-top: 20px;
+  color: green;
+}
